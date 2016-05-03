@@ -23,13 +23,20 @@
       "identifier": "fillPhotos",
       "script": "fillUserPhotos.js",
       "handler": "onRun"
+    },
+    {
+      "name": "Fill with random numbers",
+      "identifier": "fillNumbers",
+      "script": "fillWithRandomNumber.js",
+      "handler": "onRun"
     }
     ],
   "menu": {
     "items": [
       "generateUser",
       "generateNames",
-      "fillPhotos"
+      "fillPhotos",
+      "fillNumbers"
     ]
   }
 }

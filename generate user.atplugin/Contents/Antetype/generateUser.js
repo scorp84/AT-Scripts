@@ -110,6 +110,7 @@ function onRun(context) {
         alert.setAccessoryView(View);
 
         var responseCode = alert.runModal();
+        log(responseCode);
         var sel = accessory.indexOfSelectedItem();
         Sprache = sel;
 
@@ -215,9 +216,7 @@ function onRun(context) {
               child.setValue_forKey_inState_(2,"backgroundPainterType",aStates[iCntStates]);
             }
           }
-
         }
-
       }
 
     }
