@@ -3,7 +3,7 @@
   "description": "Plugins to generate contents",
   "author": "Florian Kall, Elwood",
   "homepage": "http://github.com/antetype/",
-  "version": 1.0,
+  "version": 1.1,
   "identifier": "de.ergosign.generateuser",
   "commands": [
     {
