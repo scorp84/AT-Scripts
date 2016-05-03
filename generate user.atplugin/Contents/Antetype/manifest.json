@@ -1,0 +1,35 @@
+{
+  "name": "Content Generator",
+  "description": "Plugins to generate contents",
+  "author": "Florian Kall, Elwood",
+  "homepage": "http://github.com/antetype/",
+  "version": 1.0,
+  "identifier": "de.ergosign.generateuser",
+  "commands": [
+    {
+      "name": "User",
+      "identifier": "generateUser",
+      "script": "generateUser.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Fill with names",
+      "identifier": "generateNames",
+      "script": "fillNames.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "Fill with user photos",
+      "identifier": "fillPhotos",
+      "script": "fillUserPhotos.js",
+      "handler": "onRun"
+    }
+    ],
+  "menu": {
+    "items": [
+      "generateUser",
+      "generateNames",
+      "fillPhotos"
+    ]
+  }
+}
