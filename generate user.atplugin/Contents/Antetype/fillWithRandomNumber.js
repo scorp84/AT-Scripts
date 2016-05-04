@@ -1,7 +1,7 @@
 /*
 The MIT License (MIT)
 
-Copyright (c) 2014 Timur Carpeev
+Copyright (c) 2016 Florian Kall
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,14 +21,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-*/
-
-
-/*
-this code is based on the excellent Sketch Plugin from Timur Carpeev:
-https://github.com/timuric/Content-generator-sketch-plugin
-
-Adapted to Antetype by Florian Kall
 */
 
 function onRun(context) {
