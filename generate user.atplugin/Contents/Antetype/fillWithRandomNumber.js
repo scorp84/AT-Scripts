@@ -25,79 +25,114 @@ SOFTWARE.
 
 
 /*
-    this code is based on the excellent Sketch Plugin from Timur Carpeev:
-    https://github.com/timuric/Content-generator-sketch-plugin
+this code is based on the excellent Sketch Plugin from Timur Carpeev:
+https://github.com/timuric/Content-generator-sketch-plugin
 
-    Adapted to Antetype by Florian Kall
+Adapted to Antetype by Florian Kall
 */
 
 function onRun(context) {
 
-defineClass('TexterCommand < GDSelectionCommand', {
+  defineClass('TexterCommand < GDSelectionCommand', {
     'execute' : function() {
 
       var alert = NSAlert.alloc().init()
       alert.setMessageText("Fill selected objects with random values");
-      alert.setInformativeText_("Please enter the minimum and maxmimum value for the generated values");
+      alert.setInformativeText_("Please enter the minimum and maxmimum value for the generated values.\n You can optionally enter a curreny suffix and the number of desired decimal places.");
       alert.addButtonWithTitle('Generate');
       alert.addButtonWithTitle('Cancel');
 
       //View erzeugen
-      var View = NSView.alloc().initWithFrame(NSMakeRect(0,0,400,100));
+      var View = NSView.alloc().initWithFrame(NSMakeRect(0,0,400,180));
 
-      var inputMin = NSTextField.alloc().initWithFrame_(NSMakeRect(140,40,200,25));
-      var inputMax = NSTextField.alloc().initWithFrame_(NSMakeRect(140,0,200,25));
+      var inputMin = NSTextField.alloc().initWithFrame_(NSMakeRect(140,120,160,25));
+      var inputMax = NSTextField.alloc().initWithFrame_(NSMakeRect(140,80,160,25));
+      var inputCurreny = NSTextField.alloc().initWithFrame_(NSMakeRect(140,40,80,25));
+      var inputDecimalPlaces = NSTextField.alloc().initWithFrame_(NSMakeRect(140,0,80,25));
 
       //Labels erzeugen
-      var lblMinValue = NSTextField.alloc().initWithFrame_(NSMakeRect(0,40,120,20));
+      var lblMinValue = NSTextField.alloc().initWithFrame_(NSMakeRect(0,120,120,20));
       lblMinValue.setStringValue("Minimum value");
       lblMinValue.setBezeled(0);
       lblMinValue.setDrawsBackground(false);
       lblMinValue.setEditable(false);
       lblMinValue.setSelectable(false);
 
-      var lblMaxValue = NSTextField.alloc().initWithFrame_(NSMakeRect(0,0,120,20));
-      lblMaxValue.setStringValue("Max value");
+      var lblMaxValue = NSTextField.alloc().initWithFrame_(NSMakeRect(0,80,120,20));
+      lblMaxValue.setStringValue("Maximum value");
       lblMaxValue.setBezeled(0);
       lblMaxValue.setDrawsBackground(false);
       lblMaxValue.setEditable(false);
       lblMaxValue.setSelectable(false);
 
+      var lblCurrency = NSTextField.alloc().initWithFrame_(NSMakeRect(0,40,120,20));
+      lblCurrency.setStringValue("Currency suffix");
+      lblCurrency.setBezeled(0);
+      lblCurrency.setDrawsBackground(false);
+      lblCurrency.setEditable(false);
+      lblCurrency.setSelectable(false);
+
+      var lblDecimal = NSTextField.alloc().initWithFrame_(NSMakeRect(0,0,120,20));
+      lblDecimal.setStringValue("Decimal places");
+      lblDecimal.setBezeled(0);
+      lblDecimal.setDrawsBackground(false);
+      lblDecimal.setEditable(false);
+      lblDecimal.setSelectable(false);
+
       //Controls zur View hinzufügen
       View.addSubview(inputMin);
       View.addSubview(inputMax);
       View.addSubview(lblMinValue);
+      View.addSubview(lblCurrency);
       View.addSubview(lblMaxValue);
+      View.addSubview(inputCurreny);
+      View.addSubview(lblDecimal);
+      View.addSubview(inputDecimalPlaces);
       alert.setAccessoryView(View);
 
       var responseCode = alert.runModal();
 
       var minValue = inputMin.intValue();
       var maxValue = inputMax.intValue();
+      var currency = inputCurreny.stringValue();
+      var decimalPlaces = inputDecimalPlaces.intValue();
 
-      var Val
 
-        //Ausgewählte Objekte
-        var objects = selectionController.selectedObjects();
+      var randomFixedInteger = function (length) {
+        return Math.floor(Math.pow(10, length-1) + Math.random() * (Math.pow(10, length) - Math.pow(10, length-1) - 1));
+      }
 
-        //Iteriere über Zellen
-        for (var i=0; i<objects.count(); i++) {
-            var cell = objects[i];
-            var RandomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-            cell.setValue_forKey_inState_("" + RandomNumber + "","textString",nil);
+      //Ausgewählte Objekte
+      var objects = selectionController.selectedObjects();
+
+      //Iteriere über Zellen
+      for (var i=0; i<objects.count(); i++) {
+        var cell = objects[i];
+        var RandomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+
+        if(decimalPlaces != "") {
+          RandomNumber = RandomNumber + "," + "" + randomFixedInteger(decimalPlaces)+ "";
         }
+
+        if(currency != "") {
+          RandomNumber = RandomNumber + "" + " " + currency;
+        }
+
+
+        cell.setValue_forKey_inState_("" + RandomNumber + "","textString",nil);
+      }
 
     }
     ,'executeGUI' : function() {
-        screenChangeManager.rebuildRenderObjects();
+      screenChangeManager.rebuildRenderObjects();
     }
     ,'undoGUI' : function() {
-        this.executeGUI();
+      this.executeGUI();
     }
-}
+  }
 );
 
-	var command = TexterCommand.command();
-	document.commandManager().executeCommand(command);
+var command = TexterCommand.command();
+document.commandManager().executeCommand(command);
 
 }
