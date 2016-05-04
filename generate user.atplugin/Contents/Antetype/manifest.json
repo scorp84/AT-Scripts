@@ -29,6 +29,12 @@
       "identifier": "fillNumbers",
       "script": "fillWithRandomNumber.js",
       "handler": "onRun"
+    },
+    {
+      "name": "Fill with increasing numbers",
+      "identifier": "fillIncreasing",
+      "script": "fillIncreasing.js",
+      "handler": "onRun"
     }
     ],
   "menu": {
@@ -36,7 +42,8 @@
       "generateUser",
       "generateNames",
       "fillPhotos",
-      "fillNumbers"
+      "fillNumbers",
+      "fillIncreasing"
     ]
   }
 }
