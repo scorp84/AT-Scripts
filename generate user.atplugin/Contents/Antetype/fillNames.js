@@ -36,7 +36,7 @@ SOFTWARE.
 
 function onRun(context) {
 
-defineClass('TexterCommand < GDSelectionCommand', {
+defineClass('FillNames < GDSelectionCommand', {
     'execute' : function() {
 
         //Namen Arrays auf DE setzen
@@ -79,7 +79,7 @@ defineClass('TexterCommand < GDSelectionCommand', {
 }
 );
 
-	var command = TexterCommand.command();
+	var command = FillNames.command();
 	document.commandManager().executeCommand(command);
 
 }

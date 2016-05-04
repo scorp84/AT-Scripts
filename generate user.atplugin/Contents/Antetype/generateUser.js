@@ -57,7 +57,7 @@ function onRun(context) {
   }
 
 
-  defineClass('TexterCommand < GDSelectionCommand', {
+  defineClass('GenerateUser < GDSelectionCommand', {
     'execute' : function() {
 
       var options = ["German", "English", "French", "Spanish", "Italian", "Russian"];
@@ -229,7 +229,7 @@ function onRun(context) {
   }
 );
 
-var command = TexterCommand.command();
+var command = GenerateUser.command();
 document.commandManager().executeCommand(command);
 
 }

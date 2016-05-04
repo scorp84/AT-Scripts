@@ -34,7 +34,7 @@ SOFTWARE.
 
 function onRun(context) {
 
-defineClass('TexterCommand < GDSelectionCommand', {
+defineClass('FillPhotos < GDSelectionCommand', {
     'execute' : function() {
 
         //Ausgewählte Objekte
@@ -80,7 +80,7 @@ defineClass('TexterCommand < GDSelectionCommand', {
 }
 );
 
-	var command = TexterCommand.command();
+	var command = FillPhotos.command();
 	document.commandManager().executeCommand(command);
 
 }

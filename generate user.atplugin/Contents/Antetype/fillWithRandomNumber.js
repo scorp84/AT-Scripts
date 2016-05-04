@@ -33,7 +33,7 @@ Adapted to Antetype by Florian Kall
 
 function onRun(context) {
 
-  defineClass('TexterCommand < GDSelectionCommand', {
+  defineClass('RandomNumber < GDSelectionCommand', {
     'execute' : function() {
 
       var alert = NSAlert.alloc().init()
@@ -132,7 +132,7 @@ function onRun(context) {
   }
 );
 
-var command = TexterCommand.command();
+var command = RandomNumber.command();
 document.commandManager().executeCommand(command);
 
 }
