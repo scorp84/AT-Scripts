@@ -66,8 +66,13 @@ defineClass('FillPhotos < GDSelectionCommand', {
             var picName = fileNames[Math.floor(Math.random() * fileNames.count())];
             var picture = selectionController.project().addResourceWithFile_(appSupportPath + picName);
 
-            cell.setValue_forKey_inState_(picture,"backgroundImageResource",nil);
-            cell.setValue_forKey_inState_(2,"backgroundPainterType",nil);
+            //Iteriere über alle states
+            var aStates = cell.states().allObjects();
+            for(var iCntStates = 0; iCntStates < aStates.count(); iCntStates++) {
+              cell.setValue_forKey_inState_(picture,"backgroundImageResource",aStates[iCntStates]);
+              cell.setValue_forKey_inState_(2,"backgroundPainterType",aStates[iCntStates]);
+            }
+
         }
 
     }

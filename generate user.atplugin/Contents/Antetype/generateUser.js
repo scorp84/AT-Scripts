@@ -207,7 +207,10 @@ function onRun(context) {
               child.setValue_forKey_inState_(name,"textString",aStates[iCntStates]);
             } else if (child.name() == "LASTNAME") {
               child.setValue_forKey_inState_(lastname,"textString",aStates[iCntStates]);
-            } else if (child.name() == "PHONE") {
+            }else if (child.name() == "FULLNAME") {
+              child.setValue_forKey_inState_(name + " " + lastname,"textString",aStates[iCntStates]);
+            }
+            else if (child.name() == "PHONE") {
               child.setValue_forKey_inState_(phone,"textString",aStates[iCntStates]);
             } else if (child.name() == "EMAIL") {
               child.setValue_forKey_inState_(mail,"textString",aStates[iCntStates]);

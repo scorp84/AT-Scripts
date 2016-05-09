@@ -101,7 +101,12 @@ function onRun(context) {
         if(suffix != "") {
           Celltxt = Celltxt + suffix;
         }
-        cell.setValue_forKey_inState_("" + Celltxt + "","textString",nil);
+
+        //Iteriere über alle States
+        var aStates = cell.states().allObjects();
+        for(var iCntStates = 0; iCntStates < aStates.count(); iCntStates++) {
+            cell.setValue_forKey_inState_("" + Celltxt + "","textString",aStates[iCntStates]);
+        }
         Value = Value+1;
       }
 

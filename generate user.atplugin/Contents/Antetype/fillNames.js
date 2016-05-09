@@ -57,7 +57,12 @@ defineClass('FillNames < GDSelectionCommand', {
             var index = Math.floor(r * l);
             var prename = firstNames[index];
             var lastname = lastNames[Math.floor(Math.random() * lastNames.length) ];
-            cell.setValue_forKey_inState_(prename + ' ' + lastname,"textString",nil);
+
+            //Iteriere über alle states
+            var aStates = cell.states().allObjects();
+            for(var iCntStates = 0; iCntStates < aStates.count(); iCntStates++) {
+              cell.setValue_forKey_inState_(prename + ' ' + lastname,"textString",aStates[iCntStates]);
+            }
         }
 
     }

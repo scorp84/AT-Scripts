@@ -110,8 +110,11 @@ function onRun(context) {
           RandomNumber = RandomNumber + "" + " " + currency;
         }
 
-
-        cell.setValue_forKey_inState_("" + RandomNumber + "","textString",nil);
+        //Iteriere über alle States
+        var aStates = cell.states().allObjects();
+        for(var iCntStates = 0; iCntStates < aStates.count(); iCntStates++) {
+              cell.setValue_forKey_inState_("" + RandomNumber + "","textString",aStates[iCntStates]);
+        }
       }
 
     }
