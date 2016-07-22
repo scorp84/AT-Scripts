@@ -1,0 +1,28 @@
+{
+  "name": "Aspect ratio",
+  "description": "Plugin to set common aspect ratios",
+  "author": "Florian Kall",
+  "homepage": "http://github.com/scorp84/",
+  "version": 1.0,
+  "identifier": "de.ergosign.aspectratio",
+  "commands": [
+    {
+      "name": "16:9",
+      "identifier": "16to9",
+      "script": "16-9.js",
+      "handler": "onRun"
+    },
+    {
+      "name": "4:3",
+      "identifier": "4to3",
+      "script": "4-3.js",
+      "handler": "onRun"
+    }
+    ],
+  "menu": {
+    "items": [
+      "16to9",
+      "4to3"
+    ]
+  }
+}
