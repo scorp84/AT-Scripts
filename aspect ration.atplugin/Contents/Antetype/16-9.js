@@ -25,18 +25,16 @@ SOFTWARE.
 
 function onRun(context) {
 
-defineClass('FillNames < GDSelectionCommand', {
+defineClass('16to9 < GDSelectionCommand', {
     'execute' : function() {
 
-      log('Macht was');
         //Ausgewählte Objekte
         var objects = selectionController.selectedObjects();
 
         //Iteriere über Zellen
         for (var i=0; i<objects.count(); i++) {
             var cell = objects[i];
-            var iHeight := NSNumber.numberWithInteger(500);
-            log(cell.height());
+
             //Iteriere über alle states
             var aStates = cell.states().allObjects();
             for(var iCntStates = 0; iCntStates < aStates.count(); iCntStates++) {
@@ -58,7 +56,7 @@ defineClass('FillNames < GDSelectionCommand', {
 }
 );
 
-	var command = FillNames.command();
+	var command = 16to9.command();
 	document.commandManager().executeCommand(command);
 
 }

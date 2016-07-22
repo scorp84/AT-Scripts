@@ -25,7 +25,7 @@ SOFTWARE.
 
 function onRun(context) {
 
-defineClass('FillNames < GDSelectionCommand', {
+defineClass('4to3 < GDSelectionCommand', {
     'execute' : function() {
 
         //Ausgewählte Objekte
@@ -56,7 +56,7 @@ defineClass('FillNames < GDSelectionCommand', {
 }
 );
 
-	var command = FillNames.command();
+	var command = 4to3.command();
 	document.commandManager().executeCommand(command);
 
 }
