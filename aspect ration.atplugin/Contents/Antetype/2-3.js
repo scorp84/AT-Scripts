@@ -25,7 +25,7 @@ SOFTWARE.
 
 function onRun(context) {
 
-defineClass('FourThree < GDSelectionCommand', {
+defineClass('TwoThree < GDSelectionCommand', {
     'execute' : function() {
 
         //Ausgewählte Objekte
@@ -41,7 +41,7 @@ defineClass('FourThree < GDSelectionCommand', {
               cell.setValue_forKey_inState(0,'verticalResizing', aStates[iCntStates])
               cell.setValue_forKey_inState(0,'horizontalResizing', aStates[iCntStates])
               var Breite = cell.width();
-              var Hoehe = Breite  * (3/4)
+              var Hoehe = Breite  * (3/2)
               cell.setValue_forKey_inState_(Hoehe,'height',aStates[iCntStates]);
             }
         }
@@ -56,7 +56,7 @@ defineClass('FourThree < GDSelectionCommand', {
 }
 );
 
-	var command = FourThree.command();
+	var command = TwoThree.command();
 	document.commandManager().executeCommand(command);
 
 }

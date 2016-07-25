@@ -17,12 +17,19 @@
       "identifier": "4to3",
       "script": "4-3.js",
       "handler": "onRun"
+    },
+    {
+      "name": "2:3",
+      "identifier": "2to3",
+      "script": "2-3.js",
+      "handler": "onRun"
     }
     ],
   "menu": {
     "items": [
       "16to9",
-      "4to3"
+      "4to3",
+      "2to3"
     ]
   }
 }

@@ -25,7 +25,7 @@ SOFTWARE.
 
 function onRun(context) {
 
-defineClass('16to9 < GDSelectionCommand', {
+defineClass('SixteenNine < GDSelectionCommand', {
     'execute' : function() {
 
         //Ausgewählte Objekte
@@ -56,7 +56,7 @@ defineClass('16to9 < GDSelectionCommand', {
 }
 );
 
-	var command = 16to9.command();
+	var command = SixteenNine.command();
 	document.commandManager().executeCommand(command);
 
 }
