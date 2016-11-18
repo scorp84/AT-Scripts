@@ -203,18 +203,18 @@ function onRun(context) {
             var child = children[j];
 
             //DATEN FUELLEN
-            if(child.name() == "FIRSTNAME"){
+            if(child.name().toLowerCase() == "firstname"){
               child.setValue_forKey_inState_(name,"textString",aStates[iCntStates]);
-            } else if (child.name() == "LASTNAME") {
+            } else if (child.name().toLowerCase() == "lastname") {
               child.setValue_forKey_inState_(lastname,"textString",aStates[iCntStates]);
-            }else if (child.name() == "FULLNAME") {
+            }else if (child.name().toLowerCase() == "fullname") {
               child.setValue_forKey_inState_(name + " " + lastname,"textString",aStates[iCntStates]);
             }
-            else if (child.name() == "PHONE") {
+            else if (child.name().toLowerCase() == "phone") {
               child.setValue_forKey_inState_(phone,"textString",aStates[iCntStates]);
-            } else if (child.name() == "EMAIL") {
+            } else if (child.name().toLowerCase() == "email") {
               child.setValue_forKey_inState_(mail,"textString",aStates[iCntStates]);
-            }else if (child.name() == "PICTURE")  {
+            }else if (child.name().toLowerCase() == "picture")  {
               child.setValue_forKey_inState_(picture,"backgroundImageResource",aStates[iCntStates]);
               child.setValue_forKey_inState_(2,"backgroundPainterType",aStates[iCntStates]);
             }

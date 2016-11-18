@@ -63,14 +63,14 @@ defineClass('FromJSON < GDSelectionCommand', {
                 var child = children[j];
                 var autoCount = (String)(i + 1);
 
-                if (child.name() == "COUNT") {
+                if (child.name().toLowerCase() == "count") {
                     child.setValue_forKey_inState_(autoCount, "textString", nil);
                 }
 
                 for (var dataKey in json[iCountJson]) {
                     //var propName = (Object.keys(json[j])[z]);
 
-                    if (child.name() == dataKey) {
+                    if (child.name().toLowerCase() == dataKey.toLowerCase()) {
                         var jsonValue = (String)(json[iCountJson][dataKey]);
                         child.setValue_forKey_inState_(jsonValue, "textString", nil);
                     }
